@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dx82sbrwhopcf"]
+
+[ext_resource type="Script" uid="uid://bejyo3g3s78j6" path="res://Scripts/UI/mainMenu.gd" id="1_wut1r"]
+
+[node name="MainMenu" type="Control" unique_id=1720886472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wut1r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1935810916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1055648932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1918986843]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1511201979]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1253864780]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"

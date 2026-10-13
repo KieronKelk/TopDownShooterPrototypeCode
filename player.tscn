@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://hmdvxmwhco2k"]
+
+[ext_resource type="Script" uid="uid://c7mbvwlwe6f8h" path="res://Scripts/Player/playerMovement.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://32qft2r8gyu5" path="res://Scripts/Player/playerShoot.gd" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://ch4p5ufeh5yrd" path="res://Scripts/Player/playerMouseRayCast.gd" id="2_onrkg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rv1jw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv1jw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6m5g"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wjxpg"]
+size = Vector3(1, 0.7980957, 0.8628235)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn5mb"]
+albedo_color = Color(0.20392157, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wjxpg"]
+height = 2.2128906
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjxpg"]
+
+[node name="Player" type="CharacterBody3D" unique_id=96227549 node_paths=PackedStringArray("tank_body_pivot", "turret_pivot", "camera")]
+collision_mask = 55
+script = ExtResource("1_4flbx")
+player_move_speed = 500.0
+tank_body_pivot = NodePath("TankBodyPivot")
+turret_pivot = NodePath("TurretPivot")
+camera = NodePath("CameraPivot/Camera3D")
+
+[node name="TurretPivot" type="Node3D" parent="." unique_id=1105721747 node_paths=PackedStringArray("barrel", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.550406, 0)
+script = ExtResource("2_i3pqv")
+barrel = NodePath("Barrel")
+player = NodePath("..")
+base_bullet_timer = 0.35
+
+[node name="Turret" type="MeshInstance3D" parent="TurretPivot" unique_id=1733066203]
+transform = Transform3D(1, 0, 0, 0, 0.20652996, 0, 0, 0, 1, 0.0073213577, 0, -0.0076961517)
+mesh = SubResource("CylinderMesh_rv1jw")
+
+[node name="Barrel" type="MeshInstance3D" parent="TurretPivot" unique_id=1619380567]
+transform = Transform3D(-6.871375e-08, 0, 0.22590375, 0, 0.20987298, 0, -1.5719874, 0, -9.874567e-09, 0.01585856, 0.020642996, -1.2009679)
+mesh = SubResource("BoxMesh_rv1jw")
+surface_material_override/0 = SubResource("StandardMaterial3D_o6m5g")
+
+[node name="TankBodyPivot" type="Node3D" parent="." unique_id=1939603713]
+
+[node name="TankBody" type="MeshInstance3D" parent="TankBodyPivot" unique_id=618736860]
+transform = Transform3D(1.8, 0, 0, 0, 1.25, 0, 0, 0, 2.5, 0, 0.8738098, 0.000579834)
+mesh = SubResource("BoxMesh_wjxpg")
+surface_material_override/0 = SubResource("StandardMaterial3D_gn5mb")
+
+[node name="Wheel" type="MeshInstance3D" parent="TankBodyPivot" unique_id=1262861878]
+transform = Transform3D(-3.715468e-08, -0.85, 0, 0.85, -3.715468e-08, 0, 0, 0, 0.85, 0, 0, 0.519261)
+mesh = SubResource("CylinderMesh_wjxpg")
+
+[node name="Wheel2" type="MeshInstance3D" parent="TankBodyPivot" unique_id=1535845336]
+transform = Transform3D(-3.715468e-08, -0.85, 0, 0.85, -3.715468e-08, 0, 0, 0, 0.85, 0, 0, -0.4269421)
+mesh = SubResource("CylinderMesh_wjxpg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=719146120]
+transform = Transform3D(2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0.57818556, 0)
+shape = SubResource("BoxShape3D_wjxpg")
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1521478547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.157878, 0.2446239)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1733173880 node_paths=PackedStringArray("player_character", "turret_pivot")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.90621, 0)
+script = ExtResource("2_onrkg")
+player_character = NodePath("../..")
+turret_pivot = NodePath("../../TurretPivot")

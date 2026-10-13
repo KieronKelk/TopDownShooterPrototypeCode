@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://wcbnugqo8jo0"]
+
+[ext_resource type="Script" uid="uid://balbgidy8wf7q" path="res://Scripts/Player/playerBullet.gd" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://rtbw4sy4r7l3" path="res://Scripts/Player/playerBulletCollision.gd" id="2_v8qja"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wjxpg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn5mb"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rtl8c"]
+
+[node name="Bullet" type="Node3D" unique_id=682115030 node_paths=PackedStringArray("bullet")]
+script = ExtResource("1_v7oki")
+bullet = NodePath(".")
+bullet_speed = 1.0
+bullet_lifespan = 10.0
+bullet_damage = 100.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=681523984]
+transform = Transform3D(1.9106853e-15, 4.3711385e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.3711385e-08, 0.99999994, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_wjxpg")
+surface_material_override/0 = SubResource("StandardMaterial3D_gn5mb")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=63938499 node_paths=PackedStringArray("bullet")]
+transform = Transform3D(1.9106853e-15, 4.3711385e-08, 1, 0.99999994, -4.3711385e-08, 0, 4.3711385e-08, 0.99999994, -4.371139e-08, 0, 0, 0)
+collision_layer = 8
+collision_mask = 30
+contact_monitor = true
+max_contacts_reported = 100
+script = ExtResource("2_v8qja")
+bullet = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1669609033]
+transform = Transform3D(1.2, 4.263257e-15, -5.0821984e-22, -4.263257e-15, 1.2, -4.263257e-15, 5.0821984e-22, 4.263257e-15, 1.2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_rtl8c")
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]

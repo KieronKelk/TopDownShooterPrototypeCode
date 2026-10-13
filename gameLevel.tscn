@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cfr2nxurodkvj"]
+
+[ext_resource type="PackedScene" uid="uid://hmdvxmwhco2k" path="res://player.tscn" id="1_gn5mb"]
+[ext_resource type="Script" uid="uid://bkpyvfhdibnr0" path="res://Scripts/Enemy/enemySpawner.gd" id="2_o6m5g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wjxpg"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gn5mb"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wjxpg"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6m5g"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_007ug"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ji0cr"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wpctx"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Level" type="Node3D" unique_id=1166176810]
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=6857207]
+transform = Transform3D(30.18712, 0, 0, 0, 1.509356, 0, 0, 0, 45.358864, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wjxpg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground" unique_id=356726210]
+collision_layer = 32
+collision_mask = 63
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D" unique_id=1349416780]
+shape = SubResource("ConcavePolygonShape3D_gn5mb")
+
+[node name="Walls" type="Node" parent="." unique_id=55591017]
+
+[node name="Wall" type="MeshInstance3D" parent="Walls" unique_id=887611109 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 40, -19.502964, 0.42636085, 0)
+mesh = SubResource("BoxMesh_wjxpg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall" unique_id=653565352]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall/StaticBody3D" unique_id=1926628427]
+shape = SubResource("ConcavePolygonShape3D_o6m5g")
+
+[node name="Wall2" type="MeshInstance3D" parent="Walls" unique_id=608361335 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 40, 19.467133, 0.42636085, 0)
+mesh = SubResource("BoxMesh_wjxpg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall2" unique_id=1804071639]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall2/StaticBody3D" unique_id=1289974921]
+shape = SubResource("ConcavePolygonShape3D_007ug")
+
+[node name="Wall3" type="MeshInstance3D" parent="Walls" unique_id=287050874 groups=["Wall"]]
+transform = Transform3D(-0.00012911856, 0, 40, 0, 2, 0, -1, 0, -0.0051636696, 0, 0.426, 19.545355)
+mesh = SubResource("BoxMesh_wjxpg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall3" unique_id=518625450]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall3/StaticBody3D" unique_id=351143961]
+shape = SubResource("ConcavePolygonShape3D_ji0cr")
+
+[node name="Wall4" type="MeshInstance3D" parent="Walls" unique_id=1255719259 groups=["Wall"]]
+transform = Transform3D(-0.00012911856, 0, 40, 0, 2, 0, -1, 0, -0.0051636696, 0, 0.426, -19.536379)
+mesh = SubResource("BoxMesh_wjxpg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/Wall4" unique_id=994020563]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall4/StaticBody3D" unique_id=220867309]
+shape = SubResource("ConcavePolygonShape3D_wpctx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=256720335]
+transform = Transform3D(1, 0, 0, 0, 0.79372185, 0.60828096, 0, -0.60828096, 0.79372185, 0, 14.81526, 13.695881)
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=1193396204 node_paths=PackedStringArray("player")]
+script = ExtResource("2_o6m5g")
+player = NodePath("../Player")
+base_spawn_time = 1.0
+can_spawn_enemy = true
+spawn_normal_chance = 85.0
+
+[node name="Player" parent="." unique_id=96227549 groups=["Player"] instance=ExtResource("1_gn5mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 31
